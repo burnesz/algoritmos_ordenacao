@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div>
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Ordenar</button>
+        </form>
+    </div>
+</body>
+</html>
