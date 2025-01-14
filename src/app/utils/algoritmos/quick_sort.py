@@ -1,4 +1,4 @@
-from algoritmos.algoritmo import Algoritmo
+from .algoritmo import Algoritmo
 import random
 
 class QuickSort(Algoritmo):

@@ -1,4 +1,4 @@
-from algoritmos.algoritmo import Algoritmo
+from .algoritmo import Algoritmo
 
 class HeapSort(Algoritmo):
     def sort(self, A):

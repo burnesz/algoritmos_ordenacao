@@ -14,11 +14,15 @@ algoritmo_choice = (
     (2, "Merge")
     )
 
-
 class FormArray (forms.Form):
-    tipo = forms.ChoiceField(
+    tipo = forms.TypedChoiceField(
         choices=tipo_choice,
+        coerce=int,
         widget=forms.Select(attrs={"class": "form-select"})
         )
-    tamanho = forms.IntegerField()
-    algoritmo = forms.ChoiceField(choices=algoritmo_choice)
+    tamanho = forms.IntegerField(widget=forms.NumberInput(attrs={"class": "form-control"}))
+    algoritmo = forms.TypedChoiceField(
+        choices=algoritmo_choice,
+        coerce=int,
+        widget=forms.Select(attrs={"class": "form-select"})
+        )
