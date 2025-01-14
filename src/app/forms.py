@@ -16,6 +16,9 @@ algoritmo_choice = (
 
 
 class FormArray (forms.Form):
-    tipo = forms.ChoiceField(choices=tipo_choice)
+    tipo = forms.ChoiceField(
+        choices=tipo_choice,
+        widget=forms.Select(attrs={"class": "form-select"})
+        )
     tamanho = forms.IntegerField()
     algoritmo = forms.ChoiceField(choices=algoritmo_choice)
