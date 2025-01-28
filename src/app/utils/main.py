@@ -2,6 +2,7 @@ from .gera_array import GeraArray
 from .algoritmos.quick_sort import QuickSort
 from .algoritmos.heap_sort import HeapSort
 from .algoritmos.merge_sort import MergeSort
+import os
 import cv2
 import numpy as np
 from PIL import Image
@@ -20,7 +21,7 @@ def gera_video(graficos):
 
         # Inicializar o VideoWriter
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Codec para .mp4
-        video = cv2.VideoWriter("./app/utils/resultado/ordenacao.mp4", fourcc, 10, (largura, altura))
+        video = cv2.VideoWriter("./app/static/videos/ordenacao.mp4", fourcc, 10, (largura, altura))
 
         # Adicionar as imagens ao vídeo
         for buffer in graficos:
@@ -30,6 +31,7 @@ def gera_video(graficos):
             video.write(imagem_bgr)
 
         video.release()
+        convert_video()
 
 def main(params):
     gera_array = GeraArray()
@@ -47,3 +49,6 @@ def main(params):
     print(A)
     
     gera_video(algoritmo_obj.graficos)
+
+def convert_video():
+    os.system("ffmpeg -i ./app/static/videos/ordenacao.mp4 -c:v libx264 -crf 23 -preset medium -c:a aac -movflags +faststart ./app/static/videos/ordenacao_h264.mp4")

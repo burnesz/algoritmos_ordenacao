@@ -10,7 +10,7 @@
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <div id="form">
+    <div id="container">
         <form action="." method="post">
             {% csrf_token %}
             {{ form.non_field_errors }}

@@ -8,7 +8,7 @@ class Algoritmo:
 
     def grafico_array(self, A):
         # Criar o gráfico
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize=(19.2, 10.8))
         plt.bar(range(len(A)), A, color="blue")
         plt.title(f"Array {self.contador}")
         plt.xlabel("Índice")
